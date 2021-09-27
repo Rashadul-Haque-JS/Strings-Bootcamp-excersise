@@ -115,7 +115,7 @@ main4();
 
 function endsWith(strings, character) {
   for (let i = 0; i < strings.length; i++) {
-    if (strings[6][i] == character) {
+    if (strings[6][i] == character) {           // line 118 *
       return true;
     }
   }
@@ -159,10 +159,10 @@ main6();
 //EXERCISE removeChar ---------------------------------------------------------->
 
 function removeChar(strings, character) {
-    let newStrings;
+    let newStrings ='';
     for (let i = 0; i < strings.length; i += 1){
-        if (strings[i] == character) {
-            newStrings = strings.substring(i);
+        if (strings[i] != character) {
+            newStrings +=strings[i];
         }
     }
     return newStrings;
@@ -171,7 +171,7 @@ function removeChar(strings, character) {
 function main7 () {
     console.log("output for removeChar: ");
     let strings = "Good day!";
-    let character = 'd'
+    let character = 'o'
     let output = removeChar(strings, character);
     console.log(output);
 }
