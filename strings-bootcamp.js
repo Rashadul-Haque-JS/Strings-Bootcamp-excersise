@@ -1,9 +1,8 @@
-//STRINGS BOOTCAMP
+//STRINGS BOOTCAMP SOLUTION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 //EXERCISE REPEAT-------------------------------------------------------------->
-function Repeat(strings, number) {
-  //Method -1
 
+function Repeat(strings, number) {
   let repeatStrings = "";
 
   while (number > 0) {
@@ -11,18 +10,13 @@ function Repeat(strings, number) {
     number--;
   }
   return repeatStrings;
-
-  // Method-2
-
-  /*output = strings.repeat(number);
-  return output;*/
 }
 
 function main() {
   console.log("Output for exercise-repeat: ");
 
-  let strings = "Hi";
-  let number = 8;
+  let strings = "Cool";
+  let number = 2;
   let outputRepeat = Repeat(strings, number);
   console.log(outputRepeat);
 }
@@ -41,19 +35,6 @@ function containsChar(strings, character) {
   }
 
   return false;
-
-  // Method-2
-
-  /* if (strings.includes(character)) {
-    return true;
-  } else {
-    return false;
-  } */
-
-  // Method -3
-
-  /* let result = strings.includes(charaacter);
-  console.log(result); */
 }
 
 function main2() {
@@ -112,15 +93,8 @@ main4();
 
 // EXERCISE endsWith------------------------------------------------------------------>
 
-
 function endsWith(strings, character) {
-  for (let i = 0; i < strings.length; i++) {
-    if (strings[6][i] == character) {           // line 118 *
-      return true;
-    }
-  }
-
-  return false;
+  return strings[strings.length - 1] == character;
 }
 
 function main5() {
@@ -131,20 +105,22 @@ function main5() {
   console.log(output);
 }
 
-main5();  
+main5();
 
 // EXERCISE REVERSE----------------------------------------------------------------->
 
 function reverse(strings) {
-  let reverseStrings = "";
+  /*let reverseStrings = "";
   for (let i = strings.length - 1; i >= 0; i--) {
     reverseStrings += strings[i];
   }
-  return reverseStrings;
+  return reverseStrings;*/
 
-  /*let splitStrings = strings.split("");
-    let output = splitStrings.reverse();
-    return output.join(''); */
+  let n = "";
+  for (i in strings) {
+    n = strings[i] + n;
+  }
+  return n;
 }
 
 function main6() {
@@ -155,28 +131,123 @@ function main6() {
 }
 main6();
 
-
 //EXERCISE removeChar ---------------------------------------------------------->
 
 function removeChar(strings, character) {
-    let newStrings ='';
-    for (let i = 0; i < strings.length; i += 1){
-        if (strings[i] != character) {
-            newStrings +=strings[i];
-        }
+  let newStrings = "";
+  for (let i = 0; i < strings.length; i += 1) {
+    if (strings[i] != character) {
+      newStrings += strings[i];
     }
-    return newStrings;
+  }
+  return newStrings;
 }
 
-function main7 () {
-    console.log("output for removeChar: ");
-    let strings = "Good day!";
-    let character = 'o'
-    let output = removeChar(strings, character);
-    console.log(output);
+function main7() {
+  console.log("output for removeChar: ");
+  let strings = "Good day!";
+  let character = "o";
+  let output = removeChar(strings, character);
+  console.log(output);
 }
 
 main7();
+
+//Exercise replaceChar ------------------------------------------------------->
+
+function replceChar(strings, char1, char2) {
+  let manipulatedString = "";
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i] == char1) {
+      manipulatedString += char2;
+    } else manipulatedString += strings[i];
+  }
+  return manipulatedString;
+}
+
+function main8() {
+  console.log("output for replchar: ");
+  let strings = "super cool";
+  let char1 = "o";
+  let char2 = "w";
+  let result = replceChar(strings, char1, char2);
+  console.log(result);
+}
+
+main8();
+
+// Substring ------------------------------------------------------------------>
+
+function subsString(strings, start, stop) {
+  let subsStrings = "";
+  for (i = start; i <= stop; i++) subsStrings += strings[i];
+  return subsStrings;
+}
+
+function main9() {
+  console.log("output for subsString: ");
+  let strings = "Hello world";
+  let start = 1;
+  let stop = 4;
+  let result = subsString(strings, start, stop);
+  console.log(result);
+}
+
+main9();
+
+// Contains ---------------------------------------------------------------------->
+
+function contains(strings, subsStrings) {
+  for (let i = 0; i < strings.length; i++) {
+    // Call previous subsString function from above to specifie indexex to compare.
+    let subs = subsString(strings, i, i + subsStrings.length - 1);
+    if (subs == subsStrings) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function main10() {
+  console.log("output for contains: ");
+  let strings = "super cool";
+  let subsStrings = "cool";
+  let result = contains(strings, subsStrings);
+  console.log(result);
+}
+
+main10();
+
+// EXERCISE remove -------------------------------------------------->
+function remove(strings, subsStrings) {
+  let newStrings = "";
+  console.log(newStrings);
+  for (let i = 0; i < strings.length; i++) {
+
+    // Call previous subsString function from above to detect indexes which have similar exact similar char and spaces .
+
+    let subs = subsString(strings, i, i + subsStrings.length - 1);
+    if (subs == subsStrings) {
+      i += subsStrings.length - 1;
+    } else {
+      newStrings += strings[i];
+    }
+  }
+  return newStrings;
+}
+
+function main11() {
+  console.log("output for remove: ");
+  let strings = "Hello world";
+  let subsStrings = "lo wo";
+  let result = remove(strings, subsStrings);
+  console.log(result);
+}
+
+main11();
+
+
+
 
 
 
