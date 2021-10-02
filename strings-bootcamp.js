@@ -1,6 +1,6 @@
 //STRINGS BOOTCAMP SOLUTION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-//EXERCISE REPEAT-------------------------------------------------------------->
+//EXERCISE REPEAT---------------------------------------------------------------------->
 
 function Repeat(strings, number) {
   let repeatStrings = "";
@@ -23,7 +23,7 @@ function main() {
 
 main();
 
-// EXERCISE containChar---------------------------------------------------------->
+// EXERCISE containChar---------------------------------------------------------------------->
 
 function containsChar(strings, character) {
   //Method-1
@@ -47,7 +47,7 @@ function main2() {
 
 main2();
 
-// EXERCISE indexOfChar--------------------------------------------------------------->
+// EXERCISE indexOfChar-------------------------------------------------------------------------->
 
 function indexOfChar(strings, char) {
   for (let i = 0; i < strings.length; i++) {
@@ -69,7 +69,7 @@ function main3() {
 
 main3();
 
-// EXERCISE startWith------------------------------------------------------------------>
+// EXERCISE startWith------------------------------------------------------------------------------->
 
 function startsWith(strings, character) {
   for (let i = 0; i < strings.length; i++) {
@@ -91,7 +91,7 @@ function main4() {
 
 main4();
 
-// EXERCISE endsWith------------------------------------------------------------------>
+// EXERCISE endsWith-------------------------------------------------------------------------------->
 
 function endsWith(strings, character) {
   return strings[strings.length - 1] == character;
@@ -107,7 +107,7 @@ function main5() {
 
 main5();
 
-// EXERCISE REVERSE----------------------------------------------------------------->
+// EXERCISE REVERSE---------------------------------------------------------------------------------->
 
 function reverse(strings) {
   /*let reverseStrings = "";
@@ -131,7 +131,7 @@ function main6() {
 }
 main6();
 
-//EXERCISE removeChar ---------------------------------------------------------->
+//EXERCISE removeChar ------------------------------------------------------------------------------->
 
 function removeChar(strings, character) {
   let newStrings = "";
@@ -153,7 +153,7 @@ function main7() {
 
 main7();
 
-//Exercise replaceChar ------------------------------------------------------->
+//Exercise replaceChar ------------------------------------------------------------------------------>
 
 function replceChar(strings, char1, char2) {
   let manipulatedString = "";
@@ -176,7 +176,7 @@ function main8() {
 
 main8();
 
-// Substring ------------------------------------------------------------------>
+// Substring ----------------------------------------------------------------------------------------->
 
 function subsString(strings, start, stop) {
   let subsStrings = "";
@@ -195,7 +195,7 @@ function main9() {
 
 main9();
 
-// Contains ---------------------------------------------------------------------->
+// Contains ----------------------------------------------------------------------------------------------------->
 
 function contains(strings, subsStrings) {
   for (let i = 0; i < strings.length; i++) {
@@ -218,7 +218,7 @@ function main10() {
 
 main10();
 
-// EXERCISE remove -------------------------------------------------->
+// EXERCISE remove ------------------------------------------------------------------------------------------------------>
 function remove(strings, subsStrings) {
   let newStrings = "";
   console.log(newStrings);
@@ -246,6 +246,71 @@ function main11() {
 
 main11();
 
+
+// EXERCISE encrypt----------------------------------------------------------------------------------->
+function encrypt(strings) {
+  let charGroup = "bcdfghjklmnopqrstuvwxyz" ;
+  let encrypted = "";
+  
+  for (let i = 0; i < strings.length; i++) {
+
+    // Call previous function from above
+    let funccontchar = containsChar(charGroup, strings[i]);
+    if (funccontchar) {
+      encrypted += strings[i] + 'o' + strings[i];
+    } else {
+      encrypted += strings[i];
+    }
+  }
+  return encrypted;
+}
+
+function main12() {
+  console.log("output for encrypt: ");
+  let strings = "hej på dig";
+
+  let result = encrypt(strings);
+  console.log(result);
+}
+
+main12();
+
+
+
+//EXERCISE  decrypted--------------------------------------------------------------------------------->
+
+function decrypt(strings) {
+  let charGroup = "bcdfghjklmnpqrstvxyzBCDFGHJKLMNPQRSTVXYZ" ;
+  let decrypted = "";
+  
+  for (let i = 0; i < strings.length; i++) {
+
+    // Call previous function from above
+    let funccontchar = containsChar(charGroup, strings[i]);
+    if (funccontchar) {
+      i += 2;
+      
+    } 
+      decrypted += strings[i];
+      
+    }
+  
+  return decrypted;
+}
+
+function main13() {
+  console.log("output for decrypt: ");
+  let strings = "hohejoj popå dodigog";
+
+  let result = decrypt(strings);
+  console.log(result);
+}
+
+main13();
+
+
+
+                           // ===============================================//
 
 
 
